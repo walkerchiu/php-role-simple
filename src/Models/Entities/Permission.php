@@ -2,9 +2,9 @@
 
 namespace WalkerChiu\RoleSimple\Models\Entities;
 
-use WalkerChiu\Core\Models\Entities\Entity;
+use WalkerChiu\Core\Models\Entities\UuidEntity;
 
-class Permission extends Entity
+class Permission extends UuidEntity
 {
     /**
      * @param array $attributes

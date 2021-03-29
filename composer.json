@@ -12,14 +12,14 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.3",
-        "walkerchiu/php-core": "^1.0"
+        "walkerchiu/php-core": "^2.0"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0"
     },
     "suggest": {
-        "walkerchiu/php-account": "^1.0",
-        "walkerchiu/php-role": "^1.0"
+        "walkerchiu/php-account": "^2.0",
+        "walkerchiu/php-role": "^2.0"
     },
     "autoload": {
         "psr-4": {

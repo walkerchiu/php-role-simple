@@ -9,8 +9,8 @@ class CreateWkRoleSimpleTable extends Migration
     public function up()
     {
         Schema::create(config('wk-core.table.role-simple.roles'), function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->nullableMorphs('host');
+            $table->uuid('id');
+            $table->nullableUuidMorphs('host');
             $table->string('serial')->nullable();
             $table->string('identifier');
             $table->string('name');
@@ -20,13 +20,14 @@ class CreateWkRoleSimpleTable extends Migration
             $table->timestampsTz();
             $table->softDeletes();
 
+            $table->primary('id');
             $table->index('serial');
             $table->index('identifier');
             $table->index('is_enabled');
         });
 
         Schema::create(config('wk-core.table.role-simple.permissions'), function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->uuid('id');
             $table->string('serial')->nullable();
             $table->string('identifier');
             $table->string('name');
@@ -36,14 +37,15 @@ class CreateWkRoleSimpleTable extends Migration
             $table->timestampsTz();
             $table->softDeletes();
 
+            $table->primary('id');
             $table->index('serial');
             $table->index('identifier');
             $table->index('is_enabled');
         });
 
         Schema::create(config('wk-core.table.role-simple.roles_permissions'), function (Blueprint $table) {
-            $table->unsignedBigInteger('role_id');
-            $table->unsignedBigInteger('permission_id');
+            $table->uuid('role_id');
+            $table->uuid('permission_id');
 
             $table->foreign('role_id')->references('id')
                   ->on(config('wk-core.table.role-simple.roles'))
@@ -56,8 +58,8 @@ class CreateWkRoleSimpleTable extends Migration
         });
 
         Schema::create(config('wk-core.table.role-simple.users_roles'), function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('role_id');
+            $table->uuid('user_id');
+            $table->uuid('role_id');
 
             $table->foreign('user_id')->references('id')
                   ->on(config('wk-core.table.user'))
