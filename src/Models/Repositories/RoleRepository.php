@@ -20,14 +20,13 @@ class RoleRepository extends Repository
     }
 
     /**
-     * @param String  $code
      * @param Array   $data
      * @param Int     $page
      * @param Int     $nums per page
      * @param Boolean $is_enabled
-     * @return Array
+     * @return Collection
      */
-    public function list(String $code, Array $data, $page = null, $nums = null, $is_enabled = null)
+    public function list(Array $data, $page = null, $nums = null, $is_enabled = null)
     {
         $this->assertForPagination($page, $nums);
 
@@ -64,18 +63,16 @@ class RoleRepository extends Repository
 
     /**
      * @param Role $entity
-     * @param Array|String $code
-     * @return Array
+     * @return Role
      */
-    public function show($entity, $code)
+    public function show($entity)
     {
     }
 
     /**
-     * @param String $code
-     * @return Collection
+     * @return Array
      */
-    public function getRoleSupported(String $code)
+    public function getRoleSupported()
     {
         $records = $this->entity->get();
 
