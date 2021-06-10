@@ -20,14 +20,13 @@ class PermissionRepository extends Repository
     }
 
     /**
-     * @param String  $code
      * @param Array   $data
      * @param Int     $page
      * @param Int     $nums per page
      * @param Boolean $is_enabled
-     * @return Array
+     * @return Collection
      */
-    public function list(String $code, Array $data, $page = null, $nums = null, $is_enabled = null)
+    public function list(Array $data, $page = null, $nums = null, $is_enabled = null)
     {
         $this->assertForPagination($page, $nums);
 
@@ -64,10 +63,9 @@ class PermissionRepository extends Repository
 
     /**
      * @param Permission $entity
-     * @param Array|String $code
-     * @return Array
+     * @return Permission
      */
-    public function show($entity, $code)
+    public function show($entity)
     {
     }
 }
