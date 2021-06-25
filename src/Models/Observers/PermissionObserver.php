@@ -107,7 +107,9 @@ class PermissionObserver
      */
     public function deleted($entity)
     {
-        //
+        if (!config('php-role-simple.soft_delete')) {
+            $entity->forceDelete();
+        }
     }
 
     /**
